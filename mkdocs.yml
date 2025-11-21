@@ -99,6 +99,9 @@ markdown_extensions:
 #      - "./PROJECT/project.md"
 #      - TECH-BLOG: "./PROJECT/TECH-BLOG/mkdocs_and_material.md"
 
+extra_css:
+  - assets/css/theme-images.css
+
 extra_javascript:
-  - js/mathjax.js
+  - assets/js/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js

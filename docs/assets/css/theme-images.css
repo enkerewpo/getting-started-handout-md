@@ -1,0 +1,19 @@
+[data-md-color-scheme="default"] .only-dark {
+    display: none !important;
+}
+
+[data-md-color-scheme="slate"] .only-light {
+    display: none !important;
+}
+
+.distro-icon {
+    display: inline-block;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.distro-icon img {
+    height: 20px;
+}
+
