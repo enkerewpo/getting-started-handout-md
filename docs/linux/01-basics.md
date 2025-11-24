@@ -31,22 +31,22 @@ Linux内核采用了GPL协议，这使得任何人都可以自由地使用、修
 
 | 发行版 | 特点 | 更新频率 | 适用情况 |
 |--------|------|----------|----------|
-| <img src="../images/ubuntu.svg" alt="Ubuntu" style="height: 20px; vertical-align: middle; margin-right: 8px;"> Ubuntu | 用户友好，社区活跃 | 两年 | Linux新手，桌面用户 |
-| <img src="../images/debian.svg" alt="Debian" style="height: 20px; vertical-align: middle; margin-right: 8px;"> Debian | 稳定，软件包丰富 | 两年 | 服务器等生产环境 |
-| <img src="../images/fedora.svg" alt="Fedora" style="height: 20px; vertical-align: middle; margin-right: 8px;"> Fedora | 最新技术，社区驱动 | 半年 | 开发者，技术爱好者 |
-| <img src="../images/redhat.svg" alt="RHEL" style="height: 20px; vertical-align: middle; margin-right: 8px;"> RHEL | 商业支持，稳定 | 三年 | 企业用户，服务器 |
-| <img src="../images/centos.svg" alt="CentOS" style="height: 20px; vertical-align: middle; margin-right: 8px;"> CentOS | RHEL的免费版本 | 死了 | 企业用户，服务器 |
-| <img src="../images/archlinux.svg" alt="Arch" style="height: 20px; vertical-align: middle; margin-right: 8px;"> Arch | 滚动更新，极简 | 以天计 | 高级用户，DIY爱好者 |
-| <img src="../images/nixos.svg" alt="NixOS" style="height: 20px; vertical-align: middle; margin-right: 8px;"> NixOS | 声明式配置，原子升级 | 以天计 | 高级用户，系统管理员 |
-| <img src="../images/rockylinux.svg" alt="Rocky" style="height: 20px; vertical-align: middle; margin-right: 8px;"> Rocky | Cent的复活版本 | 三年 | 企业用户，服务器 |
-| <img src="../images/almalinux.png" alt="Alma" style="height: 20px; vertical-align: middle; margin-right: 8px;"> Alma | Cent的复活版本 | 三年 | 企业用户，服务器 |
-| <img src="../images/linuxmint.svg" alt="Mint" style="height: 20px; vertical-align: middle; margin-right: 8px;"> Mint | 基于Ubuntu，用户友好 | 两年 | Linux新手，桌面用户 |
-| <img src="../images/manjaro.svg" alt="Manjaro" style="height: 20px; vertical-align: middle; margin-right: 8px;"> Manjaro | 基于Arch，用户友好 | 以月计 | Linux新手，桌面用户 |
-| <img src="../images/opensuse.svg" alt="openSUSE" style="height: 20px; vertical-align: middle; margin-right: 8px;"> openSUSE | 稳定，企业支持 | 八个月 | 企业用户，服务器 |
-| <img src="../images/gentoo.svg" alt="Gentoo" style="height: 20px; vertical-align: middle; margin-right: 8px;"> Gentoo | 源码编译，极致定制 | 以月计 | 高级用户，DIY爱好者 |
-| <img src="../images/kalilinux.svg" alt="Kali" style="height: 20px; vertical-align: middle; margin-right: 8px;"> Kali | 安全测试，渗透测试 | 半年 | 网络安全专业人员 |
-| <img src="../images/alpinelinux.svg" alt="Alpine" style="height: 20px; vertical-align: middle; margin-right: 8px;"> Alpine | 轻量级，安全 | 以月计 | 容器，嵌入式系统 |
-| <img src="../images/linux.svg" alt="统信UOS" style="height: 20px; vertical-align: middle; margin-right: 8px;"> 统信UOS | 中国本土，兼容Windows | 两年 | 政府，企业用户 |
+| <span class="distro-icon"><img src="../images/ubuntu.svg" alt="Ubuntu" class="icon-light"><img src="../images/ubuntu-white.svg" alt="Ubuntu" class="icon-dark"></span> Ubuntu | 用户友好，社区活跃 | 两年 | Linux新手，桌面用户 |
+| <span class="distro-icon"><img src="../images/debian.svg" alt="Debian" class="icon-light"><img src="../images/debian-white.svg" alt="Debian" class="icon-dark"></span> Debian | 稳定，软件包丰富 | 两年 | 服务器等生产环境 |
+| <span class="distro-icon"><img src="../images/fedora.svg" alt="Fedora" class="icon-light"><img src="../images/fedora-white.svg" alt="Fedora" class="icon-dark"></span> Fedora | 最新技术，社区驱动 | 半年 | 开发者，技术爱好者 |
+| <span class="distro-icon"><img src="../images/redhat.svg" alt="RHEL" class="icon-light"><img src="../images/redhat-white.svg" alt="RHEL" class="icon-dark"></span> RHEL | 商业支持，稳定 | 三年 | 企业用户，服务器 |
+| <span class="distro-icon"><img src="../images/centos.svg" alt="CentOS" class="icon-light"><img src="../images/centos-white.svg" alt="CentOS" class="icon-dark"></span> CentOS | RHEL的免费版本 | 死了 | 企业用户，服务器 |
+| <span class="distro-icon"><img src="../images/archlinux.svg" alt="Arch" class="icon-light"><img src="../images/archlinux-white.svg" alt="Arch" class="icon-dark"></span> Arch | 滚动更新，极简 | 以天计 | 高级用户，DIY爱好者 |
+| <span class="distro-icon"><img src="../images/nixos.svg" alt="NixOS" class="icon-light"><img src="../images/nixos-white.svg" alt="NixOS" class="icon-dark"></span> NixOS | 声明式配置，原子升级 | 以天计 | 高级用户，系统管理员 |
+| <span class="distro-icon"><img src="../images/rockylinux.svg" alt="Rocky" class="icon-light"><img src="../images/rockylinux-white.svg" alt="Rocky" class="icon-dark"></span> Rocky | Cent的复活版本 | 三年 | 企业用户，服务器 |
+| <span class="distro-icon"><img src="../images/almalinux.png" alt="Alma"></span> Alma | Cent的复活版本 | 三年 | 企业用户，服务器 |
+| <span class="distro-icon"><img src="../images/linuxmint.svg" alt="Mint" class="icon-light"><img src="../images/linuxmint-white.svg" alt="Mint" class="icon-dark"></span> Mint | 基于Ubuntu，用户友好 | 两年 | Linux新手，桌面用户 |
+| <span class="distro-icon"><img src="../images/manjaro.svg" alt="Manjaro" class="icon-light"><img src="../images/manjaro-white.svg" alt="Manjaro" class="icon-dark"></span> Manjaro | 基于Arch，用户友好 | 以月计 | Linux新手，桌面用户 |
+| <span class="distro-icon"><img src="../images/opensuse.svg" alt="openSUSE" class="icon-light"><img src="../images/opensuse-white.svg" alt="openSUSE" class="icon-dark"></span> openSUSE | 稳定，企业支持 | 八个月 | 企业用户，服务器 |
+| <span class="distro-icon"><img src="../images/gentoo.svg" alt="Gentoo" class="icon-light"><img src="../images/gentoo-white.svg" alt="Gentoo" class="icon-dark"></span> Gentoo | 源码编译，极致定制 | 以月计 | 高级用户，DIY爱好者 |
+| <span class="distro-icon"><img src="../images/kalilinux.svg" alt="Kali" class="icon-light"><img src="../images/kalilinux-white.svg" alt="Kali" class="icon-dark"></span> Kali | 安全测试，渗透测试 | 半年 | 网络安全专业人员 |
+| <span class="distro-icon"><img src="../images/alpinelinux.svg" alt="Alpine" class="icon-light"><img src="../images/alpinelinux-white.svg" alt="Alpine" class="icon-dark"></span> Alpine | 轻量级，安全 | 以月计 | 容器，嵌入式系统 |
+| <span class="distro-icon"><img src="../images/linux.svg" alt="统信UOS" class="icon-light"><img src="../images/linux-white.svg" alt="统信UOS" class="icon-dark"></span> 统信UOS | 中国本土，兼容Windows | 两年 | 政府，企业用户 |
 
 对于什么都不会的小白而言，我们推荐使用Ubuntu、Mint、Manjaro等用户友好的发行版。
 
