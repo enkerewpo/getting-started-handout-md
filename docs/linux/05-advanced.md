@@ -398,19 +398,29 @@ poweroff
 
 #### systemd
 
+![systemd](./images/Systemd_components.svg.png)[^systemd-components]
+
+[^systemd-components]: systemd 组件图，图片来源：<https://en.wikipedia.org/wiki/Systemd>
+
+systemd 是现代 Linux 系统的 init 系统，是目前绝大多数 Linux 发行版的默认 init 系统[^systemd-adoption]。systemd 由 RedHet 公司开发，以”违反 UNIX 哲学——一个软件只做一件事情“著称，其不仅是一个 init 系统，还是一系列完善的管理系统服务的工具和库的集合，一些常用组件包括：
+
+[^systemd-adoption]: systemd 的各种 Linux 发行版采用情况：<https://en.wikipedia.org/wiki/Systemd#Adoption>
+
+- `systemd`：系统服务管理器
+- `systemctl`：systemd的命令行管理工具
+- `systemd-analyze`：systemd的分析工具，包括系统启动分析等
+- `systemd-journald`：系统日志管理
+- `libudev`：udev 标准库
+- `localed`：管理系统的本地化（locale）
+- `systemd-logind`：管理用户登陆
+- `hostnamed`：管理主机名
+- `networkd`：网卡管理
+- `resolved`：域名解析管理
+- `systemd-boot`：启动管理，可以替换 GRUB
+
 #### OpenRC
 
-#### Runit
-
-### 远程连接
-
-#### SSH
-
-#### VNC
-
-#### RDP
-
-### 系统监控
+### 系统监控（Monitoring）
 
 #### ps
 
@@ -420,7 +430,7 @@ poweroff
 
 #### btop
 
-### tracing
+### 系统追踪（Tracing）
 
 #### strace
 
