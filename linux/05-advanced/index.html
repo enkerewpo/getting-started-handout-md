@@ -1,0 +1,2658 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../04-shell/">
+      
+      
+        <link rel="next" href="../06-mini-ics/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Linux 高级知识 - PKU计算机基础能力手册</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/theme-images.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="PKU计算机基础能力手册" class="md-header__button md-logo" aria-label="PKU计算机基础能力手册" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M220.9 123.3c1 .5 1.8 1.7 3 1.7 1.1 0 2.8-.4 2.9-1.5.2-1.4-1.9-2.3-3.2-2.9-1.7-.7-3.9-1-5.5-.1-.4.2-.8.7-.6 1.1.3 1.3 2.3 1.1 3.4 1.7M199 125c1.2 0 2-1.2 3-1.7 1.1-.6 3.1-.4 3.5-1.6.2-.4-.2-.9-.6-1.1-1.6-.9-3.8-.6-5.5.1-1.3.6-3.4 1.5-3.2 2.9.1 1 1.8 1.5 2.8 1.4m221 278.8c-3.6-4-5.3-11.6-7.2-19.7-1.8-8.1-3.9-16.8-10.5-22.4-1.3-1.1-2.6-2.1-4-2.9-1.3-.8-2.7-1.5-4.1-2 9.2-27.3 5.6-54.5-3.7-79.1-11.4-30.1-31.3-56.4-46.5-74.4-17.1-21.5-33.7-41.9-33.4-72C311.1 85.4 315.7.1 234.8 0 132.4-.2 158 103.4 156.9 135.2c-1.7 23.4-6.4 41.8-22.5 64.7-18.9 22.5-45.5 58.8-58.1 96.7-6 17.9-8.8 36.1-6.2 53.3-6.5 5.8-11.4 14.7-16.6 20.2-4.2 4.3-10.3 5.9-17 8.3s-14 6-18.5 14.5c-2.1 3.9-2.8 8.1-2.8 12.4 0 3.9.6 7.9 1.2 11.8 1.2 8.1 2.5 15.7.8 20.8-5.2 14.4-5.9 24.4-2.2 31.7 3.8 7.3 11.4 10.5 20.1 12.3 17.3 3.6 40.8 2.7 59.3 12.5 19.8 10.4 39.9 14.1 55.9 10.4 11.6-2.6 21.1-9.6 25.9-20.2 12.5-.1 26.3-5.4 48.3-6.6 14.9-1.2 33.6 5.3 55.1 4.1.6 2.3 1.4 4.6 2.5 6.7v.1c8.3 16.7 23.8 24.3 40.3 23 16.6-1.3 34.1-11 48.3-27.9 13.6-16.4 36-23.2 50.9-32.2 7.4-4.5 13.4-10.1 13.9-18.3.4-8.2-4.4-17.3-15.5-29.7M223.8 87.3c9.8-22.2 34.2-21.8 44-.4 6.5 14.2 3.6 30.9-4.3 40.4-1.6-.8-5.9-2.6-12.6-4.9 1.1-1.2 3.1-2.7 3.9-4.6 4.8-11.8-.2-27-9.1-27.3-7.3-.5-13.9 10.8-11.8 23-4.1-2-9.4-3.5-13-4.4-1-6.9-.3-14.6 2.9-21.8m-40.7-11.5c10.1 0 20.8 14.2 19.1 33.5-3.5 1-7.1 2.5-10.2 4.6 1.2-8.9-3.3-20.1-9.6-19.6-8.4.7-9.8 21.2-1.8 28.1 1 .8 1.9-.2-5.9 5.5-15.6-14.6-10.5-52.1 8.4-52.1m-13.6 60.7c6.2-4.6 13.6-10 14.1-10.5 4.7-4.4 13.5-14.2 27.9-14.2 7.1 0 15.6 2.3 25.9 8.9 6.3 4.1 11.3 4.4 22.6 9.3 8.4 3.5 13.7 9.7 10.5 18.2-2.6 7.1-11 14.4-22.7 18.1-11.1 3.6-19.8 16-38.2 14.9-3.9-.2-7-1-9.6-2.1-8-3.5-12.2-10.4-20-15-8.6-4.8-13.2-10.4-14.7-15.3q-2.1-7.35 4.2-12.3m3.3 334c-2.7 35.1-43.9 34.4-75.3 18-29.9-15.8-68.6-6.5-76.5-21.9-2.4-4.7-2.4-12.7 2.6-26.4v-.2c2.4-7.6.6-16-.6-23.9-1.2-7.8-1.8-15 .9-20 3.5-6.7 8.5-9.1 14.8-11.3 10.3-3.7 11.8-3.4 19.6-9.9 5.5-5.7 9.5-12.9 14.3-18 5.1-5.5 10-8.1 17.7-6.9 8.1 1.2 15.1 6.8 21.9 16l19.6 35.6c9.5 19.9 43.1 48.4 41 68.9m-1.4-25.9c-4.1-6.6-9.6-13.6-14.4-19.6 7.1 0 14.2-2.2 16.7-8.9 2.3-6.2 0-14.9-7.4-24.9-13.5-18.2-38.3-32.5-38.3-32.5-13.5-8.4-21.1-18.7-24.6-29.9s-3-23.3-.3-35.2c5.2-22.9 18.6-45.2 27.2-59.2 2.3-1.7.8 3.2-8.7 20.8-8.5 16.1-24.4 53.3-2.6 82.4.6-20.7 5.5-41.8 13.8-61.5 12-27.4 37.3-74.9 39.3-112.7 1.1.8 4.6 3.2 6.2 4.1 4.6 2.7 8.1 6.7 12.6 10.3 12.4 10 28.5 9.2 42.4 1.2 6.2-3.5 11.2-7.5 15.9-9 9.9-3.1 17.8-8.6 22.3-15 7.7 30.4 25.7 74.3 37.2 95.7 6.1 11.4 18.3 35.5 23.6 64.6 3.3-.1 7 .4 10.9 1.4 13.8-35.7-11.7-74.2-23.3-84.9-4.7-4.6-4.9-6.6-2.6-6.5 12.6 11.2 29.2 33.7 35.2 59 2.8 11.6 3.3 23.7.4 35.7 16.4 6.8 35.9 17.9 30.7 34.8-2.2-.1-3.2 0-4.2 0 3.2-10.1-3.9-17.6-22.8-26.1-19.6-8.6-36-8.6-38.3 12.5-12.1 4.2-18.3 14.7-21.4 27.3-2.8 11.2-3.6 24.7-4.4 39.9-.5 7.7-3.6 18-6.8 29-32.1 22.9-76.7 32.9-114.3 7.2m257.4-11.5c-.9 16.8-41.2 19.9-63.2 46.5-13.2 15.7-29.4 24.4-43.6 25.5s-26.5-4.8-33.7-19.3c-4.7-11.1-2.4-23.1 1.1-36.3 3.7-14.2 9.2-28.8 9.9-40.6.8-15.2 1.7-28.5 4.2-38.7 2.6-10.3 6.6-17.2 13.7-21.1.3-.2.7-.3 1-.5.8 13.2 7.3 26.6 18.8 29.5 12.6 3.3 30.7-7.5 38.4-16.3 9-.3 15.7-.9 22.6 5.1 9.9 8.5 7.1 30.3 17.1 41.6 10.6 11.6 14 19.5 13.7 24.6M173.4 148.7c2 1.9 4.7 4.5 8 7.1 6.6 5.2 15.8 10.6 27.3 10.6 11.6 0 22.5-5.9 31.8-10.8 4.9-2.6 10.9-7 14.8-10.4s5.9-6.3 3.1-6.6-2.6 2.6-6 5.1c-4.4 3.2-9.7 7.4-13.9 9.8-7.4 4.2-19.5 10.2-29.9 10.2s-18.7-4.8-24.9-9.7c-3.1-2.5-5.7-5-7.7-6.9-1.5-1.4-1.9-4.6-4.3-4.9-1.4-.1-1.8 3.7 1.7 6.5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PKU计算机基础能力手册
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux 高级知识
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lcpu-club/getting-started-handout-md/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PKU计算机基础能力手册" class="md-nav__button md-logo" aria-label="PKU计算机基础能力手册" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M220.9 123.3c1 .5 1.8 1.7 3 1.7 1.1 0 2.8-.4 2.9-1.5.2-1.4-1.9-2.3-3.2-2.9-1.7-.7-3.9-1-5.5-.1-.4.2-.8.7-.6 1.1.3 1.3 2.3 1.1 3.4 1.7M199 125c1.2 0 2-1.2 3-1.7 1.1-.6 3.1-.4 3.5-1.6.2-.4-.2-.9-.6-1.1-1.6-.9-3.8-.6-5.5.1-1.3.6-3.4 1.5-3.2 2.9.1 1 1.8 1.5 2.8 1.4m221 278.8c-3.6-4-5.3-11.6-7.2-19.7-1.8-8.1-3.9-16.8-10.5-22.4-1.3-1.1-2.6-2.1-4-2.9-1.3-.8-2.7-1.5-4.1-2 9.2-27.3 5.6-54.5-3.7-79.1-11.4-30.1-31.3-56.4-46.5-74.4-17.1-21.5-33.7-41.9-33.4-72C311.1 85.4 315.7.1 234.8 0 132.4-.2 158 103.4 156.9 135.2c-1.7 23.4-6.4 41.8-22.5 64.7-18.9 22.5-45.5 58.8-58.1 96.7-6 17.9-8.8 36.1-6.2 53.3-6.5 5.8-11.4 14.7-16.6 20.2-4.2 4.3-10.3 5.9-17 8.3s-14 6-18.5 14.5c-2.1 3.9-2.8 8.1-2.8 12.4 0 3.9.6 7.9 1.2 11.8 1.2 8.1 2.5 15.7.8 20.8-5.2 14.4-5.9 24.4-2.2 31.7 3.8 7.3 11.4 10.5 20.1 12.3 17.3 3.6 40.8 2.7 59.3 12.5 19.8 10.4 39.9 14.1 55.9 10.4 11.6-2.6 21.1-9.6 25.9-20.2 12.5-.1 26.3-5.4 48.3-6.6 14.9-1.2 33.6 5.3 55.1 4.1.6 2.3 1.4 4.6 2.5 6.7v.1c8.3 16.7 23.8 24.3 40.3 23 16.6-1.3 34.1-11 48.3-27.9 13.6-16.4 36-23.2 50.9-32.2 7.4-4.5 13.4-10.1 13.9-18.3.4-8.2-4.4-17.3-15.5-29.7M223.8 87.3c9.8-22.2 34.2-21.8 44-.4 6.5 14.2 3.6 30.9-4.3 40.4-1.6-.8-5.9-2.6-12.6-4.9 1.1-1.2 3.1-2.7 3.9-4.6 4.8-11.8-.2-27-9.1-27.3-7.3-.5-13.9 10.8-11.8 23-4.1-2-9.4-3.5-13-4.4-1-6.9-.3-14.6 2.9-21.8m-40.7-11.5c10.1 0 20.8 14.2 19.1 33.5-3.5 1-7.1 2.5-10.2 4.6 1.2-8.9-3.3-20.1-9.6-19.6-8.4.7-9.8 21.2-1.8 28.1 1 .8 1.9-.2-5.9 5.5-15.6-14.6-10.5-52.1 8.4-52.1m-13.6 60.7c6.2-4.6 13.6-10 14.1-10.5 4.7-4.4 13.5-14.2 27.9-14.2 7.1 0 15.6 2.3 25.9 8.9 6.3 4.1 11.3 4.4 22.6 9.3 8.4 3.5 13.7 9.7 10.5 18.2-2.6 7.1-11 14.4-22.7 18.1-11.1 3.6-19.8 16-38.2 14.9-3.9-.2-7-1-9.6-2.1-8-3.5-12.2-10.4-20-15-8.6-4.8-13.2-10.4-14.7-15.3q-2.1-7.35 4.2-12.3m3.3 334c-2.7 35.1-43.9 34.4-75.3 18-29.9-15.8-68.6-6.5-76.5-21.9-2.4-4.7-2.4-12.7 2.6-26.4v-.2c2.4-7.6.6-16-.6-23.9-1.2-7.8-1.8-15 .9-20 3.5-6.7 8.5-9.1 14.8-11.3 10.3-3.7 11.8-3.4 19.6-9.9 5.5-5.7 9.5-12.9 14.3-18 5.1-5.5 10-8.1 17.7-6.9 8.1 1.2 15.1 6.8 21.9 16l19.6 35.6c9.5 19.9 43.1 48.4 41 68.9m-1.4-25.9c-4.1-6.6-9.6-13.6-14.4-19.6 7.1 0 14.2-2.2 16.7-8.9 2.3-6.2 0-14.9-7.4-24.9-13.5-18.2-38.3-32.5-38.3-32.5-13.5-8.4-21.1-18.7-24.6-29.9s-3-23.3-.3-35.2c5.2-22.9 18.6-45.2 27.2-59.2 2.3-1.7.8 3.2-8.7 20.8-8.5 16.1-24.4 53.3-2.6 82.4.6-20.7 5.5-41.8 13.8-61.5 12-27.4 37.3-74.9 39.3-112.7 1.1.8 4.6 3.2 6.2 4.1 4.6 2.7 8.1 6.7 12.6 10.3 12.4 10 28.5 9.2 42.4 1.2 6.2-3.5 11.2-7.5 15.9-9 9.9-3.1 17.8-8.6 22.3-15 7.7 30.4 25.7 74.3 37.2 95.7 6.1 11.4 18.3 35.5 23.6 64.6 3.3-.1 7 .4 10.9 1.4 13.8-35.7-11.7-74.2-23.3-84.9-4.7-4.6-4.9-6.6-2.6-6.5 12.6 11.2 29.2 33.7 35.2 59 2.8 11.6 3.3 23.7.4 35.7 16.4 6.8 35.9 17.9 30.7 34.8-2.2-.1-3.2 0-4.2 0 3.2-10.1-3.9-17.6-22.8-26.1-19.6-8.6-36-8.6-38.3 12.5-12.1 4.2-18.3 14.7-21.4 27.3-2.8 11.2-3.6 24.7-4.4 39.9-.5 7.7-3.6 18-6.8 29-32.1 22.9-76.7 32.9-114.3 7.2m257.4-11.5c-.9 16.8-41.2 19.9-63.2 46.5-13.2 15.7-29.4 24.4-43.6 25.5s-26.5-4.8-33.7-19.3c-4.7-11.1-2.4-23.1 1.1-36.3 3.7-14.2 9.2-28.8 9.9-40.6.8-15.2 1.7-28.5 4.2-38.7 2.6-10.3 6.6-17.2 13.7-21.1.3-.2.7-.3 1-.5.8 13.2 7.3 26.6 18.8 29.5 12.6 3.3 30.7-7.5 38.4-16.3 9-.3 15.7-.9 22.6 5.1 9.9 8.5 7.1 30.3 17.1 41.6 10.6 11.6 14 19.5 13.7 24.6M173.4 148.7c2 1.9 4.7 4.5 8 7.1 6.6 5.2 15.8 10.6 27.3 10.6 11.6 0 22.5-5.9 31.8-10.8 4.9-2.6 10.9-7 14.8-10.4s5.9-6.3 3.1-6.6-2.6 2.6-6 5.1c-4.4 3.2-9.7 7.4-13.9 9.8-7.4 4.2-19.5 10.2-29.9 10.2s-18.7-4.8-24.9-9.7c-3.1-2.5-5.7-5-7.7-6.9-1.5-1.4-1.9-4.6-4.3-4.9-1.4-.1-1.8 3.7 1.7 6.5"/></svg>
+
+    </a>
+    PKU计算机基础能力手册
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lcpu-club/getting-started-handout-md/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Basic
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/00-intro/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v256c0 35.3 28.7 64 64 64h144l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h144c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 64h320c17.7 0 32 14.3 32 32v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128c0-17.7 14.3-32 32-32"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机的发展历史
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/01-hardware/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7c-12-12-28.3-18.7-45.3-18.7zm32 96c0-17.7 14.3-32 32-32h160c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32zm128 160a64 64 0 1 1 0 128 64 64 0 1 1 0-128"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    硬件相关知识
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/02-software/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 32c0-17.7-14.3-32-32-32s-32 14.3-32 32v210.7l-41.4-41.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 242.7zM64 320c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-32c0-35.3-28.7-64-64-64h-46.9l-56.6 56.6c-31.2 31.2-81.9 31.2-113.1 0L110.9 320zm304 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    软件相关知识
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/03-files/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="m56 225.6-23.6 70.6V96c0-35.3 28.7-64 64-64h138.7c13.8 0 27.3 4.5 38.4 12.8l38.4 28.8c5.5 4.2 12.3 6.4 19.2 6.4h117.3c35.3 0 64 28.7 64 64v16H147c-41.3 0-78 26.4-91.1 65.6zM477.8 448H99c-32.8 0-55.9-32.1-45.5-63.2l48-144C108 221.2 126.4 208 147 208h378.8c32.8 0 55.9 32.1 45.5 63.2l-48 144c-6.5 19.6-24.9 32.8-45.5 32.8"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    文件、目录及其管理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/04-characters/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M221.5 51.7C216.6 39.8 204.9 32 192 32s-24.6 7.8-29.5 19.7c-93.3 224-146.7 352-160 384-6.8 16.3.9 35 17.2 41.8s35-.9 41.8-17.2L93.3 384h197.3l31.8 76.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8c-13.3-32-66.7-160-160-384zM264 320H120l72-172.8z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    字符和编码
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/05-fonts/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M285.1 50.7C279.9 39.3 268.5 32 256 32s-23.9 7.3-29.1 18.7L59.5 416H48c-17.7 0-32 14.3-32 32s14.3 32 32 32h88c17.7 0 32-14.3 32-32s-14.3-32-32-32h-6.1l22-48h208.3l22 48h-6.1c-17.7 0-32 14.3-32 32s14.3 32 32 32h88c17.7 0 32-14.3 32-32s-14.3-32-32-32h-11.5L285.2 50.7zM330.8 304H181.2L256 140.8z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    字形和字体
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/06-interactions/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 64C28.7 64 0 92.7 0 128v256c0 35.3 28.7 64 64 64h448c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64zm16 64h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16M64 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16zm112-112h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16m-16 112c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm16 80h224c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16m80-176c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm16 80h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16m80-80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm16 80h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16m80-80c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16zm16 80h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16h-32c-8.8 0-16-7.2-16-16v-32c0-8.8 7.2-16 16-16"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机的高效使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/07-network/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M288 96c-90.9 0-173.2 36-233.7 94.6-12.7 12.3-33 12-45.2-.7s-12-33 .7-45.2C81.7 74.9 179.9 32 288 32s206.3 42.9 278.3 112.7c12.7 12.3 13 32.6.7 45.2s-32.6 13-45.2.7C461.2 132 378.9 96 288 96m-48 336a48 48 0 1 1 96 0 48 48 0 1 1-96 0m-72-105.8c-11.7 13.3-31.9 14.5-45.2 2.8s-14.5-31.9-2.8-45.2c41-46.4 101.1-75.8 168-75.8s127 29.4 168 75.8c11.7 13.3 10.4 33.5-2.8 45.2s-33.5 10.4-45.2-2.8c-29.4-33.3-72.2-54.2-120-54.2s-90.6 20.9-120 54.2"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机间的通讯
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/08-communications/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 208c0 45.9-14.9 88.3-40 122.7l126.6 126.7c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.1-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208M208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    搜索和信息获取
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.546 10.93 13.067.452a1.55 1.55 0 0 0-2.188 0L8.708 2.627l2.76 2.76a1.838 1.838 0 0 1 2.327 2.341l2.658 2.66a1.838 1.838 0 0 1 1.9 3.039 1.837 1.837 0 0 1-2.6 0 1.85 1.85 0 0 1-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348a1.85 1.85 0 0 1 0 2.6 1.844 1.844 0 0 1-2.609 0 1.834 1.834 0 0 1 0-2.598c.182-.18.387-.316.605-.406V8.835a1.834 1.834 0 0 1-.996-2.41L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477a1.545 1.545 0 0 0 2.186 0l10.43-10.43a1.544 1.544 0 0 0 0-2.187"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Git与版本控制
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/github/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub与多人协作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/key/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2m5.6-4c-.8-2.3-3-4-5.6-4-3.3 0-6 2.7-6 6s2.7 6 6 6c2.6 0 4.8-1.7 5.6-4H16v4h4v-4h3v-4z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    密钥与远程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-basics/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M220.9 123.3c1 .5 1.8 1.7 3 1.7 1.1 0 2.8-.4 2.9-1.5.2-1.4-1.9-2.3-3.2-2.9-1.7-.7-3.9-1-5.5-.1-.4.2-.8.7-.6 1.1.3 1.3 2.3 1.1 3.4 1.7M199 125c1.2 0 2-1.2 3-1.7 1.1-.6 3.1-.4 3.5-1.6.2-.4-.2-.9-.6-1.1-1.6-.9-3.8-.6-5.5.1-1.3.6-3.4 1.5-3.2 2.9.1 1 1.8 1.5 2.8 1.4m221 278.8c-3.6-4-5.3-11.6-7.2-19.7-1.8-8.1-3.9-16.8-10.5-22.4-1.3-1.1-2.6-2.1-4-2.9-1.3-.8-2.7-1.5-4.1-2 9.2-27.3 5.6-54.5-3.7-79.1-11.4-30.1-31.3-56.4-46.5-74.4-17.1-21.5-33.7-41.9-33.4-72C311.1 85.4 315.7.1 234.8 0 132.4-.2 158 103.4 156.9 135.2c-1.7 23.4-6.4 41.8-22.5 64.7-18.9 22.5-45.5 58.8-58.1 96.7-6 17.9-8.8 36.1-6.2 53.3-6.5 5.8-11.4 14.7-16.6 20.2-4.2 4.3-10.3 5.9-17 8.3s-14 6-18.5 14.5c-2.1 3.9-2.8 8.1-2.8 12.4 0 3.9.6 7.9 1.2 11.8 1.2 8.1 2.5 15.7.8 20.8-5.2 14.4-5.9 24.4-2.2 31.7 3.8 7.3 11.4 10.5 20.1 12.3 17.3 3.6 40.8 2.7 59.3 12.5 19.8 10.4 39.9 14.1 55.9 10.4 11.6-2.6 21.1-9.6 25.9-20.2 12.5-.1 26.3-5.4 48.3-6.6 14.9-1.2 33.6 5.3 55.1 4.1.6 2.3 1.4 4.6 2.5 6.7v.1c8.3 16.7 23.8 24.3 40.3 23 16.6-1.3 34.1-11 48.3-27.9 13.6-16.4 36-23.2 50.9-32.2 7.4-4.5 13.4-10.1 13.9-18.3.4-8.2-4.4-17.3-15.5-29.7M223.8 87.3c9.8-22.2 34.2-21.8 44-.4 6.5 14.2 3.6 30.9-4.3 40.4-1.6-.8-5.9-2.6-12.6-4.9 1.1-1.2 3.1-2.7 3.9-4.6 4.8-11.8-.2-27-9.1-27.3-7.3-.5-13.9 10.8-11.8 23-4.1-2-9.4-3.5-13-4.4-1-6.9-.3-14.6 2.9-21.8m-40.7-11.5c10.1 0 20.8 14.2 19.1 33.5-3.5 1-7.1 2.5-10.2 4.6 1.2-8.9-3.3-20.1-9.6-19.6-8.4.7-9.8 21.2-1.8 28.1 1 .8 1.9-.2-5.9 5.5-15.6-14.6-10.5-52.1 8.4-52.1m-13.6 60.7c6.2-4.6 13.6-10 14.1-10.5 4.7-4.4 13.5-14.2 27.9-14.2 7.1 0 15.6 2.3 25.9 8.9 6.3 4.1 11.3 4.4 22.6 9.3 8.4 3.5 13.7 9.7 10.5 18.2-2.6 7.1-11 14.4-22.7 18.1-11.1 3.6-19.8 16-38.2 14.9-3.9-.2-7-1-9.6-2.1-8-3.5-12.2-10.4-20-15-8.6-4.8-13.2-10.4-14.7-15.3q-2.1-7.35 4.2-12.3m3.3 334c-2.7 35.1-43.9 34.4-75.3 18-29.9-15.8-68.6-6.5-76.5-21.9-2.4-4.7-2.4-12.7 2.6-26.4v-.2c2.4-7.6.6-16-.6-23.9-1.2-7.8-1.8-15 .9-20 3.5-6.7 8.5-9.1 14.8-11.3 10.3-3.7 11.8-3.4 19.6-9.9 5.5-5.7 9.5-12.9 14.3-18 5.1-5.5 10-8.1 17.7-6.9 8.1 1.2 15.1 6.8 21.9 16l19.6 35.6c9.5 19.9 43.1 48.4 41 68.9m-1.4-25.9c-4.1-6.6-9.6-13.6-14.4-19.6 7.1 0 14.2-2.2 16.7-8.9 2.3-6.2 0-14.9-7.4-24.9-13.5-18.2-38.3-32.5-38.3-32.5-13.5-8.4-21.1-18.7-24.6-29.9s-3-23.3-.3-35.2c5.2-22.9 18.6-45.2 27.2-59.2 2.3-1.7.8 3.2-8.7 20.8-8.5 16.1-24.4 53.3-2.6 82.4.6-20.7 5.5-41.8 13.8-61.5 12-27.4 37.3-74.9 39.3-112.7 1.1.8 4.6 3.2 6.2 4.1 4.6 2.7 8.1 6.7 12.6 10.3 12.4 10 28.5 9.2 42.4 1.2 6.2-3.5 11.2-7.5 15.9-9 9.9-3.1 17.8-8.6 22.3-15 7.7 30.4 25.7 74.3 37.2 95.7 6.1 11.4 18.3 35.5 23.6 64.6 3.3-.1 7 .4 10.9 1.4 13.8-35.7-11.7-74.2-23.3-84.9-4.7-4.6-4.9-6.6-2.6-6.5 12.6 11.2 29.2 33.7 35.2 59 2.8 11.6 3.3 23.7.4 35.7 16.4 6.8 35.9 17.9 30.7 34.8-2.2-.1-3.2 0-4.2 0 3.2-10.1-3.9-17.6-22.8-26.1-19.6-8.6-36-8.6-38.3 12.5-12.1 4.2-18.3 14.7-21.4 27.3-2.8 11.2-3.6 24.7-4.4 39.9-.5 7.7-3.6 18-6.8 29-32.1 22.9-76.7 32.9-114.3 7.2m257.4-11.5c-.9 16.8-41.2 19.9-63.2 46.5-13.2 15.7-29.4 24.4-43.6 25.5s-26.5-4.8-33.7-19.3c-4.7-11.1-2.4-23.1 1.1-36.3 3.7-14.2 9.2-28.8 9.9-40.6.8-15.2 1.7-28.5 4.2-38.7 2.6-10.3 6.6-17.2 13.7-21.1.3-.2.7-.3 1-.5.8 13.2 7.3 26.6 18.8 29.5 12.6 3.3 30.7-7.5 38.4-16.3 9-.3 15.7-.9 22.6 5.1 9.9 8.5 7.1 30.3 17.1 41.6 10.6 11.6 14 19.5 13.7 24.6M173.4 148.7c2 1.9 4.7 4.5 8 7.1 6.6 5.2 15.8 10.6 27.3 10.6 11.6 0 22.5-5.9 31.8-10.8 4.9-2.6 10.9-7 14.8-10.4s5.9-6.3 3.1-6.6-2.6 2.6-6 5.1c-4.4 3.2-9.7 7.4-13.9 9.8-7.4 4.2-19.5 10.2-29.9 10.2s-18.7-4.8-24.9-9.7c-3.1-2.5-5.7-5-7.7-6.9-1.5-1.4-1.9-4.6-4.3-4.9-1.4-.1-1.8 3.7 1.7 6.5"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux 基础知识
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-installation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 32c0-17.7-14.3-32-32-32s-32 14.3-32 32v210.7l-41.4-41.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 242.7zM64 320c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64v-32c0-35.3-28.7-64-64-64h-46.9l-56.6 56.6c-31.2 31.2-81.9 31.2-113.1 0L110.9 320zm304 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux 安装和配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-using-linux/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M348.8 32C340.7 46.1 336 62.5 336 80v16H64v224h272v64H64c-35.3 0-64-28.7-64-64V96c0-35.3 28.7-64 64-64zM336 432c0 17.5 4.7 33.9 12.8 48H120c-13.3 0-24-10.7-24-24s10.7-24 24-24zm96-400h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48m24 64c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24zm56 144a32 32 0 1 0-64 0 32 32 0 1 0 64 0"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux 日常使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-shell/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M9.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L146.7 256zM224 384h256c17.7 0 32 14.3 32 32s-14.3 32-32 32H224c-17.7 0-32-14.3-32-32s14.3-32 32-32"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Shell 与脚本
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux 高级知识
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6m64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l73.3-73.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux 高级知识
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进阶使用 Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="进阶使用 Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        终端管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="终端管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tmux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统初始化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统初始化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sysvinit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sysvinit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#busybox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BusyBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        systemd
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统监控（Monitoring）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统监控（Monitoring）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        top
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#htop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        htop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统追踪（Tracing）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统追踪（Tracing）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        strace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        perf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ftrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ftrace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bpftrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bpftrace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lttng" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LTTng
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux 内核初探
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux 内核初探">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内核开发流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内核源码树结构与内核编译
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KBUILD 系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内核子系统简介
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内核子系统简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进程管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内存管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网络系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        驱动框架
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安全机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rust-for-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rust For Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ebpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eBPF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-mini-ics/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56zm-16 104h192c17.7 0 32 14.3 32 32v192c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32m16 48v160h160V176z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    简单理解计算机系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/01-algorithm/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    算法基础知识
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/02-algorithm/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    常见算法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/03-datastruct/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    数据结构基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进阶使用 Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="进阶使用 Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        终端管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="终端管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tmux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tmux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统初始化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统初始化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sysvinit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sysvinit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#busybox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BusyBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        systemd
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统监控（Monitoring）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统监控（Monitoring）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        top
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#htop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        htop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统追踪（Tracing）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="系统追踪（Tracing）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#strace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        strace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        perf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ftrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ftrace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bpftrace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bpftrace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lttng" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LTTng
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux 内核初探
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux 内核初探">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内核开发流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内核源码树结构与内核编译
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kbuild" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KBUILD 系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内核子系统简介
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="内核子系统简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进程管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内存管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        网络系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        驱动框架
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安全机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rust-for-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rust For Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ebpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        eBPF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/lcpu-club/getting-started-handout-md/edit/master/docs/linux/05-advanced.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/lcpu-club/getting-started-handout-md/raw/master/docs/linux/05-advanced.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="linux">Linux 高级知识<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h1>
+<div class="admonition note 作者">
+<p class="admonition-title">Note</p>
+<p>本文作者列表：</p>
+<ul>
+<li><a href="https://github.com/enkerewpo">wheatfox</a> (wheatfox17@icloud.com)</li>
+</ul>
+</div>
+<h2 id="linux_1">进阶使用 Linux<a class="headerlink" href="#linux_1" title="Permanent link">&para;</a></h2>
+<h3 id="_1">终端管理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h4 id="screen">screen<a class="headerlink" href="#screen" title="Permanent link">&para;</a></h4>
+<p><img alt="screen的欢迎界面" src="../images/screen-interface.webp" width="85%" /><sup id="fnref:screen-interface"><a class="footnote-ref" href="#fn:screen-interface">1</a></sup></p>
+<p>screen 是一个终端复用器（Terminal Multiplexer），它允许你在一个终端内运行多个窗口（window），每个窗口的程序执行都是相互独立的。每当我们运行一次 screen 命令，都会启动一个 screen 会话（session）：</p>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span><span class="c1"># 什么窗口都不开，显示一个欢迎界面</span>
+screen<span class="w"> </span>-S<span class="w"> </span>&lt;sname&gt;<span class="w"> </span><span class="c1"># 创建一个新的名字为 &lt;sname&gt; 的 session</span>
+</code></pre></div>
+<p>接下来我们介绍 screen 的核心功能——窗口管理，首先要介绍其核心快捷键 <code>Ctrl+A</code>，在启动 screen 后（无论是否启动了窗口进入终端）：</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+A d</code></td>
+<td>分离当前会话，回到调用 screen 的终端</td>
+</tr>
+<tr>
+<td><code>Ctrl+A ?</code></td>
+<td>显示帮助信息，这可以让你快速查阅所有快捷键</td>
+</tr>
+<tr>
+<td><code>Ctrl+A c</code></td>
+<td>创建一个新的窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+A n</code></td>
+<td>切换到下一个窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+A p</code></td>
+<td>切换到上一个窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+A &lt;number&gt;</code></td>
+<td>切换到指定编号的窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+A w</code></td>
+<td>显示窗口列表</td>
+</tr>
+<tr>
+<td><code>Ctrl+A k</code></td>
+<td>关闭当前窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+A :</code></td>
+<td>进入命令模式</td>
+</tr>
+<tr>
+<td><code>Ctrl+A "</code></td>
+<td>显示所有窗口的列表，并可以选择窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+A \</code></td>
+<td>退出并杀死所有窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+A [</code> 或 <code>Ctrl+A ESC</code></td>
+<td>进入<strong>复制模式（copy mode）</strong>，如果需要滚动屏幕或选择文本，则必须先进入复制模式。之后可以按 <code>ESC</code> 或 <code>q</code> 退出复制模式。进入复制模式之后可以通过 vi 风格的导航或方向键导航，到对应位置后，按下 <code>SPACE</code>，然后选择区域，再按下 <code>SPACE</code> 复制选中的文本，并<strong>自动退出复制模式</strong></td>
+</tr>
+</tbody>
+</table>
+<p>当我们 detach 一个 screen 会话时，会显示一行（假设会话名为 <code>test</code>）：</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>detached<span class="w"> </span>from<span class="w"> </span><span class="m">11647</span>.test<span class="o">]</span>
+</code></pre></div>
+<p>然后回到调用 screen 的终端，此时会话仍然在后台运行，可以通过 <code>screen -ls</code> 列出所有会话，然后通过 <code>screen -r &lt;pid&gt;/&lt;session name&gt;</code> 重新连接到该会话（根据 -ls 查到的 <code>pid.session_name</code> 来确定）。</p>
+<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>-ls
+screen<span class="w"> </span>-r<span class="w"> </span><span class="m">11647</span>
+screen<span class="w"> </span>-r<span class="w"> </span><span class="m">11647</span>.test<span class="w"> </span><span class="c1"># pid.session_name 也可以</span>
+screen<span class="w"> </span>-r<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="c1"># 如果会话名唯一，可以只用会话名</span>
+screen<span class="w"> </span>-r<span class="w"> </span><span class="c1"># 如果目前只有一个会话，可以省略 pid 或 session name</span>
+</code></pre></div>
+<p>类似 vim 等软件，screen 本身也存在<strong>命令模式（command line mode）</strong>，通过按下 <code>Ctrl+A :</code> 进入命令模式，此时界面下面会显示一个冒号，然后可以通过输入命令来管理 screen：</p>
+<ol>
+<li><code>collapse</code>： 重新排序窗口，并保证新的编号连续</li>
+<li><code>detach</code>： 分离当前会话，回到调用 screen 的终端（此时 screen 会话仍然在后台运行）</li>
+<li><code>dinfo</code>： 显示当前会话的信息</li>
+<li><code>help</code>： 显示帮助信息</li>
+</ol>
+<p>更多命令请参考 screen 的 manpage（<code>man screen</code>）。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ol>
+<li>screen 最常用的一个场景是通过 ssh 连接远程服务器后，通过 screen 创建一个会话，然后在这个会话中运行编译或者机器学习任务，然后通过 screen 的 detach 功能将当前会话分离出来，这样退出 ssh 不会导致任务中断。</li>
+<li>screen 有时候也可以作为串口交互软件使用，例如通过 <code>screen /dev/ttyUSB0 115200</code> 打开一个波特率为 115200 的串口设备。Linux 下还可以使用 <code>minicom</code> 、<code>picocom</code> 以及图形化的 <code>gtkterm</code> 等软件来作为串口交互软件。</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li>screen 的在线 manpage：<a href="https://man7.org/linux/man-pages/man1/screen.1.html">screen(1) — Linux manual page</a></li>
+<li>screen 源码仓库：<a href="https://cgit.git.savannah.gnu.org/cgit/screen.git">screen.git</a></li>
+</ol>
+</div>
+<h4 id="tmux">tmux<a class="headerlink" href="#tmux" title="Permanent link">&para;</a></h4>
+<p>tmux 与 screen 类似，但提供了更强大的功能（分屏、多客户等）和更灵活的配置。tmux 采用客户端-服务器（client-server）架构，允许多个客户端连接到同一个会话。</p>
+<p>tmux 的核心概念包括：</p>
+<ul>
+<li><strong>会话（Session）</strong>：一个会话可以包含多个窗口</li>
+<li><strong>窗口（Window）</strong>：一个窗口可以包含多个窗格</li>
+<li><strong>窗格（Pane）</strong>：每个窗格是一个独立的终端</li>
+</ul>
+<p><img alt="" src="../images/tmux-server.png" width="100%" /><sup id="fnref:tmux-server"><a class="footnote-ref" href="#fn:tmux-server">8</a></sup></p>
+<p>启动 tmux：</p>
+<div class="highlight"><pre><span></span><code>tmux<span class="w">                    </span><span class="c1"># 创建一个新的会话</span>
+tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>&lt;sname&gt;<span class="w">     </span><span class="c1"># 创建一个名字为 &lt;sname&gt; 的会话</span>
+tmux<span class="w"> </span>new-session<span class="w"> </span>-s<span class="w"> </span>&lt;sname&gt;<span class="w">  </span><span class="c1"># 完整命令形式</span>
+</code></pre></div>
+<p>tmux 的默认前缀键是 <code>Ctrl+B</code>（可以通过配置文件修改，见下文）。在启动 tmux 后：</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+B d</code></td>
+<td>分离当前会话，回到调用 tmux 的终端</td>
+</tr>
+<tr>
+<td><code>Ctrl+B ?</code></td>
+<td>显示帮助信息，列出所有快捷键</td>
+</tr>
+<tr>
+<td><code>Ctrl+B c</code></td>
+<td>创建一个新的窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+B n</code></td>
+<td>切换到下一个窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+B p</code></td>
+<td>切换到上一个窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+B &lt;number&gt;</code></td>
+<td>切换到指定编号的窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+B w</code></td>
+<td>显示窗口列表，可以选择窗口</td>
+</tr>
+<tr>
+<td><code>Ctrl+B &amp;</code></td>
+<td>关闭当前窗口（需要确认）</td>
+</tr>
+<tr>
+<td><code>Ctrl+B :</code></td>
+<td>进入命令模式</td>
+</tr>
+<tr>
+<td><code>Ctrl+B [</code></td>
+<td>进入<strong>复制模式（copy mode）</strong>，可以滚动和选择文本。按 <code>q</code> 退出复制模式</td>
+</tr>
+<tr>
+<td><code>Ctrl+B %</code></td>
+<td>垂直分割窗格（创建左右两个窗格）</td>
+</tr>
+<tr>
+<td><code>Ctrl+B "</code></td>
+<td>水平分割窗格（创建上下两个窗格）</td>
+</tr>
+<tr>
+<td><code>Ctrl+B &lt;方向键&gt;</code></td>
+<td>在窗格之间切换</td>
+</tr>
+<tr>
+<td><code>Ctrl+B x</code></td>
+<td>关闭当前窗格</td>
+</tr>
+<tr>
+<td><code>Ctrl+B z</code></td>
+<td>最大化/恢复当前窗格（切换全屏）</td>
+</tr>
+</tbody>
+</table>
+<p>类似 screen，我们同样可以通过 <code>tmux ls</code> 列出所有会话，然后通过 <code>tmux attach</code> 或 <code>tmux a</code> 重新连接到会话：</p>
+<div class="highlight"><pre><span></span><code>tmux<span class="w"> </span>ls<span class="w">                      </span><span class="c1"># 列出所有会话</span>
+tmux<span class="w"> </span>attach<span class="w">                  </span><span class="c1"># 连接到列表最后一个会话</span>
+tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>&lt;sname&gt;<span class="w">       </span><span class="c1"># 连接到指定名称的会话</span>
+tmux<span class="w"> </span>a<span class="w">                       </span><span class="c1"># 简写形式，连接到最后一个会话</span>
+tmux<span class="w"> </span>a<span class="w"> </span>-t<span class="w"> </span>&lt;sname&gt;<span class="w">            </span><span class="c1"># 简写形式，连接到指定名称的会话</span>
+tmux<span class="w"> </span>kill-session<span class="w"> </span>-t<span class="w"> </span>&lt;sname&gt;<span class="w"> </span><span class="c1"># 杀死指定会话</span>
+</code></pre></div>
+<p>tmux 的客户端-服务器架构允许多个客户端同时连接到同一个会话：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 终端 1：创建一个名为 &quot;demo&quot; 的会话</span>
+tmux<span class="w"> </span>new<span class="w"> </span>-s<span class="w"> </span>demo
+
+<span class="c1"># 在会话中运行一些命令，例如：</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello from terminal 1&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/tmux-demo.txt
+cat<span class="w"> </span>/tmp/tmux-demo.txt
+
+<span class="c1"># 终端 2：从另一个终端连接到同一个会话</span>
+tmux<span class="w"> </span>attach<span class="w"> </span>-t<span class="w"> </span>demo
+
+<span class="c1"># 现在终端 2 可以看到终端 1 中运行的命令和输出</span>
+<span class="c1"># 在终端 2 中也可以执行命令，终端 1 会同步看到</span>
+
+<span class="c1"># 从任意终端 detach（例如在终端 2 中按 Ctrl+B d）</span>
+<span class="c1"># 其他终端仍然保持连接，会话继续运行</span>
+</code></pre></div>
+<p>在这个例子中，所有客户端看到相同的内容，任何一个客户端的操作都会同步到其他客户端，且即使某个客户端 detach 其他客户端仍然保持连接，会话继续运行。</p>
+<p>tmux 也支持<strong>命令模式</strong>，通过按下 <code>Ctrl+B :</code> 进入，可以输入命令来管理 tmux：</p>
+<ol>
+<li><code>new-window</code>：创建新窗口</li>
+<li><code>kill-window</code>：关闭当前窗口</li>
+<li><code>list-sessions</code>：列出所有会话</li>
+<li><code>detach</code>：分离当前会话</li>
+<li><code>split-window</code>：分割窗格（<code>-h</code> 水平分割，<code>-v</code> 垂直分割）</li>
+</ol>
+<p>更多命令请参考 tmux 的 manpage（<code>man tmux</code>）。</p>
+<p><strong>配置文件使用</strong></p>
+<p>默认情况下 tmux 没有配置文件，如果需要自定义一些快捷键或配置，则需先创建一个配置文件：</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># 首先启动一个 tmux 会话，然后 detach 出去</span>
+tmux<span class="w"> </span>new-session<span class="w"> </span>-s<span class="w"> </span>demo
+<span class="c1"># CTRL+B d 分离会话</span>
+tmux<span class="w"> </span>show<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/^/set -g /&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>~/.tmux.conf
+vim<span class="w"> </span>~/.tmux.conf
+</code></pre></div>
+常用配置示例：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 更改前缀键为 Ctrl+A</span>
+set-option<span class="w"> </span>-g<span class="w"> </span>prefix<span class="w"> </span>C-a
+unbind-key<span class="w"> </span>C-b
+bind-key<span class="w"> </span>C-a<span class="w"> </span>send-prefix
+
+<span class="c1"># 使用 Alt-arrow 切换窗格，无需前缀键</span>
+<span class="nb">bind</span><span class="w"> </span>-n<span class="w"> </span>M-Left<span class="w"> </span><span class="k">select</span>-pane<span class="w"> </span>-L
+<span class="nb">bind</span><span class="w"> </span>-n<span class="w"> </span>M-Right<span class="w"> </span><span class="k">select</span>-pane<span class="w"> </span>-R
+<span class="nb">bind</span><span class="w"> </span>-n<span class="w"> </span>M-Up<span class="w"> </span><span class="k">select</span>-pane<span class="w"> </span>-U
+<span class="nb">bind</span><span class="w"> </span>-n<span class="w"> </span>M-Down<span class="w"> </span><span class="k">select</span>-pane<span class="w"> </span>-D
+
+<span class="c1"># 启用鼠标/触摸板支持，例如滚轮或触摸滚动时屏幕跟随滚动</span>
+set-option<span class="w"> </span>-g<span class="w"> </span>mouse<span class="w"> </span>on
+
+<span class="c1"># 设置窗口和窗格的索引从 1 开始</span>
+set-option<span class="w"> </span>-g<span class="w"> </span>base-index<span class="w"> </span><span class="m">1</span>
+setw<span class="w"> </span>-g<span class="w"> </span>pane-base-index<span class="w"> </span><span class="m">1</span>
+
+<span class="c1"># 重新加载配置文件快捷键（Ctrl+A r）</span>
+<span class="nb">bind</span><span class="w"> </span>r<span class="w"> </span>source-file<span class="w"> </span>~/.tmux.conf<span class="w"> </span><span class="se">\;</span><span class="w"> </span>display-message<span class="w"> </span><span class="s2">&quot;Config reloaded!&quot;</span>
+
+<span class="c1"># 更多配置请参考 tmux 的 manpage（`man tmux`）。</span>
+</code></pre></div>
+<p>修改配置文件后，可以在 tmux 内使用 <code>Ctrl+B :</code> 然后输入 <code>source-file ~/.tmux.conf</code> 来重新加载配置，或者使用上面配置的快捷键 <code>Ctrl+A r</code>。</p>
+<div class="admonition note">
+<p class="admonition-title">参考资料</p>
+<ol>
+<li>tmux 的在线 manpage：<a href="https://man7.org/linux/man-pages/man1/tmux.1.html">tmux(1) — Linux manual page</a></li>
+<li>tmux 源码仓库：<a href="https://github.com/tmux/tmux">tmux/tmux: tmux source code</a></li>
+<li>Tmux Cheat Sheet &amp; Quick Reference: <a href="https://tmuxcheatsheet.com">https://tmuxcheatsheet.com</a></li>
+</ol>
+</div>
+<h3 id="_2">系统初始化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>此处的系统初始化指的是 Linux 内核启动完成之后，进入用户态时内核执行的第一个进程，通常以 <code>init</code> 来表示，其 PID 为 1，是之后运行的所有进程（Shell、系统服务、用户程序等）的“祖先”。本小节将介绍 Linux 系统中作为 <code>init</code> 程序的若干中实现，包括 sysvinit、busybox init、systemd，除此之外还有其他实现，例如 OpenRC<sup id="fnref:openrc"><a class="footnote-ref" href="#fn:openrc">2</a></sup>、runit<sup id="fnref:runit"><a class="footnote-ref" href="#fn:runit">3</a></sup> 等。</p>
+<div class="admonition problem">
+<p class="admonition-title">问题</p>
+<p>是否有 PID 为 0 的进程？如果有的话，这个进程是做什么的？</p>
+</div>
+<h4 id="sysvinit">sysvinit<a class="headerlink" href="#sysvinit" title="Permanent link">&para;</a></h4>
+<p>sysvinit（System V init）是传统的 Linux 系统初始化系统，也是 Unix System V 风格的 init 系统。它是 Linux 系统启动后第一个运行的进程（PID 1），负责启动和管理系统中的所有其他进程。</p>
+<p><strong>基本概念</strong></p>
+<p>sysvinit 使用运行级别（runlevel）来定义系统的不同状态：</p>
+<table>
+<thead>
+<tr>
+<th>运行级别</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>关机</td>
+</tr>
+<tr>
+<td>1</td>
+<td>单用户模式（维护模式）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>多用户模式（无网络）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>多用户模式（有网络，文本界面）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>未使用（可自定义）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>多用户模式（有网络，图形界面）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>重启</td>
+</tr>
+</tbody>
+</table>
+<p><strong>目录结构</strong></p>
+<p>sysvinit 的脚本主要位于以下目录：</p>
+<ul>
+<li><code>/etc/init.d/</code>：存放所有服务的启动脚本</li>
+<li><code>/etc/rc.d/rc0.d/</code> 到 <code>/etc/rc.d/rc6.d/</code>：对应不同运行级别的脚本链接目录</li>
+<li><code>/etc/inittab</code>：init 进程的主配置文件，定义默认运行级别和启动行为</li>
+</ul>
+<p><strong>服务管理</strong></p>
+<p>在 sysvinit 系统中，服务脚本通常支持以下操作：</p>
+<div class="highlight"><pre><span></span><code>/etc/init.d/&lt;service&gt;<span class="w"> </span>start<span class="w">      </span><span class="c1"># 启动服务</span>
+/etc/init.d/&lt;service&gt;<span class="w"> </span>stop<span class="w">       </span><span class="c1"># 停止服务</span>
+/etc/init.d/&lt;service&gt;<span class="w"> </span>restart<span class="w">    </span><span class="c1"># 重启服务</span>
+/etc/init.d/&lt;service&gt;<span class="w"> </span>reload<span class="w">     </span><span class="c1"># 重新加载配置（不重启服务）</span>
+/etc/init.d/&lt;service&gt;<span class="w"> </span>status<span class="w">     </span><span class="c1"># 查看服务状态</span>
+</code></pre></div>
+<p><strong>运行级别管理</strong></p>
+<p>查看当前运行级别：</p>
+<div class="highlight"><pre><span></span><code>runlevel<span class="w">                    </span><span class="c1"># 显示当前和上一个运行级别</span>
+who<span class="w"> </span>-r<span class="w">                      </span><span class="c1"># 另一种查看方式</span>
+</code></pre></div>
+<p>切换运行级别：</p>
+<div class="highlight"><pre><span></span><code>init<span class="w"> </span>&lt;runlevel&gt;<span class="w">            </span><span class="c1"># 切换到指定运行级别</span>
+telinit<span class="w"> </span>&lt;runlevel&gt;<span class="w">         </span><span class="c1"># 另一种切换方式</span>
+</code></pre></div>
+<p><strong>服务脚本命名规则</strong></p>
+<p>在运行级别目录（如 <code>/etc/rc.d/rc3.d/</code>）中，脚本链接的命名规则为：</p>
+<ul>
+<li><code>S&lt;nn&gt;&lt;name&gt;</code>：启动脚本（S 表示 Start），<code>nn</code> 是两位数字表示启动顺序</li>
+<li><code>K&lt;nn&gt;&lt;name&gt;</code>：停止脚本（K 表示 Kill），<code>nn</code> 是两位数字表示停止顺序</li>
+</ul>
+<p>例如：<code>S99network</code> 表示在网络服务启动时，按顺序 99 启动；<code>K01network</code> 表示在停止时，按顺序 01 停止。</p>
+<p><strong>手动管理服务</strong></p>
+<p>添加新服务：</p>
+<ol>
+<li>在 <code>/etc/init.d/</code> 创建服务脚本</li>
+<li>使用 <code>chkconfig</code> 或手动创建符号链接到相应的运行级别目录</li>
+</ol>
+<p>使用 <code>chkconfig</code> 管理服务：</p>
+<div class="highlight"><pre><span></span><code>chkconfig<span class="w"> </span>--add<span class="w"> </span>&lt;service&gt;<span class="w">        </span><span class="c1"># 添加服务</span>
+chkconfig<span class="w"> </span>--del<span class="w"> </span>&lt;service&gt;<span class="w">        </span><span class="c1"># 删除服务</span>
+chkconfig<span class="w"> </span>&lt;service&gt;<span class="w"> </span>on<span class="w">           </span><span class="c1"># 在运行级别 3,4,5 启用服务</span>
+chkconfig<span class="w"> </span>&lt;service&gt;<span class="w"> </span>off<span class="w">          </span><span class="c1"># 在运行级别 3,4,5 禁用服务</span>
+chkconfig<span class="w"> </span>--list<span class="w"> </span>&lt;service&gt;<span class="w">       </span><span class="c1"># 查看服务的运行级别配置</span>
+chkconfig<span class="w"> </span>--list<span class="w">                 </span><span class="c1"># 查看所有服务的运行级别配置</span>
+</code></pre></div>
+<p><strong>配置文件：/etc/inittab</strong></p>
+<p><code>/etc/inittab</code> 文件定义了系统的默认运行级别和启动行为，格式通常为：</p>
+<div class="highlight"><pre><span></span><code>id:runlevels:action:process
+</code></pre></div>
+<p>例如：</p>
+<div class="highlight"><pre><span></span><code>id:3:initdefault:              # 默认运行级别为 3
+si::sysinit:/etc/rc.d/rc.sysinit  # 系统初始化脚本
+</code></pre></div>
+<p>如果你想详细了解 inittab，请参考 <a href="https://manpages.debian.org/bookworm/sysvinit-core/inittab.5.en.html">https://manpages.debian.org/bookworm/sysvinit-core/inittab.5.en.html</a>。</p>
+<div class="admonition note">
+<p class="admonition-title">参考资料</p>
+<ol>
+<li>sysvinit 是传统的 init 系统，现在大多数现代 Linux 发行版已经迁移到 systemd，所以上面的大部分命令在你的系统中无法使用</li>
+<li>Debian 在 Jessie（Debian 8，2015年）之前采用 sysvinit，之后迁移到 systemd</li>
+<li>sysvinit 源码仓库：<a href="https://git.savannah.gnu.org/cgit/sysvinit.git">https://git.savannah.gnu.org/cgit/sysvinit.git</a></li>
+</ol>
+</div>
+<h4 id="busybox">BusyBox<a class="headerlink" href="#busybox" title="Permanent link">&para;</a></h4>
+<p><img alt="BusyBox" src="../images/busybox.png" width="100%" /></p>
+<p>BusyBox 是一个集成了许多 Unix 工具的单一可执行文件，它将许多常用的 Unix 工具（如 <code>ls</code>、<code>cat</code>、<code>grep</code>、<code>mount</code>、<code>sh</code><sup id="fnref:busybox-sh"><a class="footnote-ref" href="#fn:busybox-sh">4</a></sup> 等，称为 "applets"）打包成一个小的可执行文件。BusyBox 常用于嵌入式系统如基于 buildroot 等构建的 Linux 发行版、Alpine Linux 等。</p>
+<p><strong>基本概念</strong></p>
+<p>BusyBox 通过符号链接（symlink）机制工作：BusyBox 可执行文件本身包含所有工具的实现，通过不同的名称（符号链接）调用时，会执行相应的功能。</p>
+<div class="admonition tip">
+<p class="admonition-title">提示</p>
+<ol>
+<li>假设你尝试自己制作一个基于 BusyBox 的 Linux 发行版文件系统，你编译好 BusyBox 后将其放在了正在构建的文件系统中的 <code>/bin/busybox</code>，然后你可以 <code>cd</code> 进入对应的 bin 目录（例如 <code>~/my_rootfs/bin</code>）然后创建一个符号链接：<code>ln -s busybox ls</code>，<strong>切记不要使用<code>ln -s /bin/busybox /bin/ls</code>这样的形式</strong>，因为我们假设你在构建文件系统时还没有 chroot，所以 <code>/bin</code> 目录指向的是你的 host linux 环境中的 <code>/bin</code> 目录。请思考一下 BusyBox 是如何做到“通过符号链接就能调用单个可执行文件中的所有工具”的？</li>
+<li>请阅读 BusyBox 的源码，验证你的想法：<ul>
+<li>GitHub 仓库：<a href="https://github.com/mirror/busybox">https://github.com/mirror/busybox</a>，观察源码结构，找到“真正的” <code>main</code> 函数的实现（你可能会发现若干 <code>xxx_main</code> 函数，它们是 BusyBox 的各 applet 的 “main 函数”）</li>
+<li><a href="https://elixir.bootlin.com/busybox/1.37.0/source/libbb/appletlib.c#L769" title="https://elixir.bootlin.com/busybox/1.37.0/source/libbb/appletlib.c#L769" target="_blank"> Spoiler Alert：点击跳转到谜底（真 main）</a></li>
+<li><a href="https://elixir.bootlin.com/busybox/1.37.0/source/libbb/appletlib.c#L977" title="https://elixir.bootlin.com/busybox/1.37.0/source/libbb/appletlib.c#L977" target="_blank"> Spoiler Alert：点击跳转到谜底（运行 applets）</a></li>
+</ul>
+</li>
+<li>前文的 <code>ln</code> 命令是在你的 host linux 环境中执行的，此时构建的文件系统内容还不完整</li>
+</ol>
+</div>
+<p><strong>基本使用</strong></p>
+<p>查看 BusyBox 支持的所有命令：</p>
+<div class="highlight"><pre><span></span><code>busybox<span class="w"> </span>--list<span class="w">              </span><span class="c1"># 列出所有支持的命令</span>
+busybox<span class="w"> </span>--list-full<span class="w">         </span><span class="c1"># 列出所有支持的命令（完整路径形式）</span>
+</code></pre></div>
+<p>使用 BusyBox 命令：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 方式 1：直接调用 busybox，后跟命令名</span>
+busybox<span class="w"> </span>ls
+busybox<span class="w"> </span>cat<span class="w"> </span>/etc/passwd
+busybox<span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="w"> </span>/etc/passwd
+
+<span class="c1"># 方式 2：通过符号链接调用（如果已创建符号链接）</span>
+<span class="c1"># 例如：/bin/ls -&gt; /bin/busybox</span>
+ls<span class="w">                          </span><span class="c1"># 实际调用 busybox ls</span>
+cat<span class="w"> </span>/etc/passwd<span class="w">             </span><span class="c1"># 实际调用 busybox cat</span>
+</code></pre></div>
+<p><strong>安装和配置</strong></p>
+<p>在系统中安装 BusyBox 后，通常需要创建符号链接：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建符号链接到 /bin 目录</span>
+busybox<span class="w"> </span>--install<span class="w"> </span>-s<span class="w"> </span>/bin
+
+<span class="c1"># 或者手动创建符号链接</span>
+ln<span class="w"> </span>-s<span class="w"> </span>/bin/busybox<span class="w"> </span>/bin/ls
+ln<span class="w"> </span>-s<span class="w"> </span>/bin/busybox<span class="w"> </span>/bin/cat
+ln<span class="w"> </span>-s<span class="w"> </span>/bin/busybox<span class="w"> </span>/bin/grep
+</code></pre></div>
+<p><strong>作为 init 系统</strong></p>
+<p>BusyBox 也包含一个简化版的 init 系统（BusyBox init），常用于嵌入式 Linux 系统。BusyBox init 使用 <code>/etc/inittab</code> 配置文件：</p>
+<div class="highlight"><pre><span></span><code># /etc/inittab 示例
+::sysinit:/etc/init.d/rcS
+::respawn:/sbin/getty 115200 ttyS0
+::ctrlaltdel:/sbin/reboot
+::shutdown:/bin/umount -a -r
+</code></pre></div>
+<p>BusyBox init 支持以下操作：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看 init 进程信息</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>init
+
+<span class="c1"># 重启系统（如果使用 BusyBox init）</span>
+reboot
+
+<span class="c1"># 关机（如果使用 BusyBox init）</span>
+halt
+poweroff
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">参考资料</p>
+<ol>
+<li>BusyBox 官方网站：<a href="https://busybox.net">https://busybox.net</a></li>
+<li>BusyBox 源码仓库：<a href="https://git.busybox.net/busybox">https://git.busybox.net/busybox</a></li>
+<li>大多数现代 Linux 发行版使用完整的 GNU coreutils（<a href="https://www.gnu.org/software/coreutils/">https://www.gnu.org/software/coreutils/</a>）</li>
+<li>在嵌入式系统和容器环境中，BusyBox 仍然非常流行</li>
+</ol>
+</div>
+<h4 id="systemd">systemd<a class="headerlink" href="#systemd" title="Permanent link">&para;</a></h4>
+<p><img alt="systemd" src="../images/Systemd_components.svg.png" /><sup id="fnref:systemd-components"><a class="footnote-ref" href="#fn:systemd-components">5</a></sup></p>
+<p><a href="https://systemd.io">systemd</a> 是现代 Linux 系统的 init 系统，是目前绝大多数 Linux 发行版的默认 init 系统<sup id="fnref:systemd-adoption"><a class="footnote-ref" href="#fn:systemd-adoption">6</a></sup>。systemd 由 RedHet 公司开发，以”违反 UNIX 哲学——一个软件只做一件事情“著称，其不仅是一个 init 系统，还是一系列完善的管理系统服务的工具和库的集合，一些常用组件包括：</p>
+<ul>
+<li><code>systemd</code>：系统服务管理器</li>
+<li><code>systemctl</code>：systemd的命令行管理工具</li>
+<li><code>systemd-analyze</code>：systemd的分析工具，包括系统启动分析等</li>
+<li><code>systemd-journald</code>：系统日志管理</li>
+<li><code>libudev</code>：udev 标准库</li>
+<li><code>localed</code>：管理系统的本地化（locale）</li>
+<li><code>systemd-logind</code>：管理用户登陆</li>
+<li><code>hostnamed</code>：管理主机名</li>
+<li><code>networkd</code>：网卡管理</li>
+<li><code>resolved</code>：域名解析管理</li>
+<li><code>systemd-boot</code>：启动管理，可以替换 GRUB</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">参考资料</p>
+<ol>
+<li>systemd 官方网站：<a href="https://systemd.io">https://systemd.io</a></li>
+<li>systemd 源码仓库：<a href="https://github.com/systemd/systemd">https://github.com/systemd/systemd</a></li>
+</ol>
+</div>
+<h3 id="monitoring">系统监控（Monitoring）<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h3>
+<h4 id="ps">ps<a class="headerlink" href="#ps" title="Permanent link">&para;</a></h4>
+<h4 id="top">top<a class="headerlink" href="#top" title="Permanent link">&para;</a></h4>
+<h4 id="htop">htop<a class="headerlink" href="#htop" title="Permanent link">&para;</a></h4>
+<h3 id="tracing">系统追踪（Tracing）<a class="headerlink" href="#tracing" title="Permanent link">&para;</a></h3>
+<h4 id="strace">strace<a class="headerlink" href="#strace" title="Permanent link">&para;</a></h4>
+<h4 id="perf">perf<a class="headerlink" href="#perf" title="Permanent link">&para;</a></h4>
+<h4 id="ftrace">ftrace<a class="headerlink" href="#ftrace" title="Permanent link">&para;</a></h4>
+<h4 id="bpftrace">bpftrace<a class="headerlink" href="#bpftrace" title="Permanent link">&para;</a></h4>
+<h4 id="lttng">LTTng<a class="headerlink" href="#lttng" title="Permanent link">&para;</a></h4>
+<h2 id="linux_2">Linux 内核初探<a class="headerlink" href="#linux_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">内核开发流程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_4">内核源码树结构与内核编译<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="kbuild">KBUILD 系统<a class="headerlink" href="#kbuild" title="Permanent link">&para;</a></h3>
+<h3 id="_5">内核子系统简介<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h4 id="_6">进程管理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<h4 id="_7">内存管理<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<h4 id="_8">文件系统<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<h4 id="_9">网络系统<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<h4 id="_10">驱动框架<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<h4 id="_11">安全机制<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<h3 id="rust-for-linux">Rust For Linux<a class="headerlink" href="#rust-for-linux" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li>Rust-for-Linux 官方网站： <a href="https://rust-for-linux.com">https://rust-for-linux.com</a></li>
+<li>Rust-for-Linux 内核文档： <a href="https://docs.kernel.org/rust/index.html">https://docs.kernel.org/rust/index.html</a></li>
+</ol>
+</div>
+<h3 id="ebpf">eBPF<a class="headerlink" href="#ebpf" title="Permanent link">&para;</a></h3>
+<p>1993 年 McCanne 和 Van Jacobson 在 USENIX 论文<sup id="fnref:bsd-packet-filter"><a class="footnote-ref" href="#fn:bsd-packet-filter">7</a></sup>中提出 BSD Packet Filter，使用一套轻量可验证的虚拟机来高效过滤网络包。经典 BPF（cBPF）随后在 Linux 2.6 内核中被引入，用作 tcpdump 与 libpcap 的底层过滤引擎。2014 年，Linux 内核 3.18 替换了旧的 BPF 解释器，引入扩展 BPF（extended BPF，eBPF）虚拟机：增加 64 位寄存器、改进指令集、支持函数调用、提供独立栈空间并具备严格的安全验证。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol>
+<li>eBPF 官方网站： <a href="https://ebpf.io">https://ebpf.io</a></li>
+<li>eBPF 内核文档： <a href="https://docs.kernel.org/bpf/index.html">https://docs.kernel.org/bpf/index.html</a></li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果你想知道更多关于 Linux 内核的知识，可以参考 <a href="https://docs.kernel.org/">Linux内核官方文档</a>。</p>
+</div>
+<!-- references -->
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:screen-interface">
+<p>How to Install and Use Screen on Linux (15 Practical Examples) <a href="https://linuxtldr.com/installing-screen/">https://linuxtldr.com/installing-screen/</a>&#160;<a class="footnote-backref" href="#fnref:screen-interface" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:openrc">
+<p>OpenRC 文档：<a href="https://wiki.gentoo.org/wiki/OpenRC">https://wiki.gentoo.org/wiki/OpenRC</a>&#160;<a class="footnote-backref" href="#fnref:openrc" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:runit">
+<p>runit 源码：<a href="https://github.com/void-linux/runit">https://github.com/void-linux/runit</a>&#160;<a class="footnote-backref" href="#fnref:runit" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:busybox-sh">
+<p>BusyBox 自带了 <code>sh</code> 解释器的实现 <code>ash</code> 或 <code>hush</code>，<a href="https://elixir.bootlin.com/busybox/1.37.0/source/shell">https://elixir.bootlin.com/busybox/1.37.0/source/shell</a>&#160;<a class="footnote-backref" href="#fnref:busybox-sh" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:systemd-components">
+<p>systemd 组件图，图片来源：<a href="https://en.wikipedia.org/wiki/Systemd">https://en.wikipedia.org/wiki/Systemd</a>&#160;<a class="footnote-backref" href="#fnref:systemd-components" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:systemd-adoption">
+<p>systemd 的各种 Linux 发行版采用情况：<a href="https://en.wikipedia.org/wiki/Systemd#Adoption">https://en.wikipedia.org/wiki/Systemd#Adoption</a>&#160;<a class="footnote-backref" href="#fnref:systemd-adoption" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:bsd-packet-filter">
+<p>McCanne, Steven and Van Jacobson. “The BSD Packet Filter: A New Architecture for User-level Packet Capture.” USENIX Winter (1993)&#160;<a class="footnote-backref" href="#fnref:bsd-packet-filter" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:tmux-server">
+<p>Everything you need to know about tmux – Panes <a href="https://arcolinux.com/everthing-you-need-to-know-about-tmux-panes">https://arcolinux.com/everthing-you-need-to-know-about-tmux-panes</a>&#160;<a class="footnote-backref" href="#fnref:tmux-server" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../04-shell/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Shell 与脚本">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Shell 与脚本
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../06-mini-ics/" class="md-footer__link md-footer__link--next" aria-label="下一页: 简单理解计算机系统">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                简单理解计算机系统
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.top", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
