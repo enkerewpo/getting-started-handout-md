@@ -197,12 +197,20 @@ bind r source-file ~/.tmux.conf \; display-message "Config reloaded!"
 
 修改配置文件后，可以在 tmux 内使用 `Ctrl+B :` 然后输入 `source-file ~/.tmux.conf` 来重新加载配置，或者使用上面配置的快捷键 `Ctrl+A r`。
 
-!!! note
+!!! note "参考资料"
     1. tmux 的在线 manpage：[tmux(1) — Linux manual page](https://man7.org/linux/man-pages/man1/tmux.1.html)
     2. tmux 源码仓库：[tmux/tmux: tmux source code](https://github.com/tmux/tmux)
     3. Tmux Cheat Sheet & Quick Reference: <https://tmuxcheatsheet.com>
 
 ### 系统初始化
+
+此处的系统初始化指的是 Linux 内核启动完成之后，进入用户态时内核执行的第一个进程，通常以 `init` 来表示，其 PID 为 1，是之后运行的所有进程（Shell、系统服务、用户程序等）的“祖先”。本小节将介绍 Linux 系统中作为 `init` 程序的若干中实现，包括 sysvinit、busybox init、systemd，除此之外还有其他实现，例如 OpenRC[^openrc]、runit[^runit] 等。
+
+[^openrc]: OpenRC 文档：<https://wiki.gentoo.org/wiki/OpenRC>
+[^runit]: runit 源码：<https://github.com/void-linux/runit>
+
+!!! problem "问题"
+    是否有 PID 为 0 的进程？如果有的话，这个进程是做什么的？
 
 #### sysvinit
 
@@ -302,7 +310,7 @@ si::sysinit:/etc/rc.d/rc.sysinit  # 系统初始化脚本
 
 如果你想详细了解 inittab，请参考 <https://manpages.debian.org/bookworm/sysvinit-core/inittab.5.en.html>。
 
-!!! note
+!!! note "参考资料"
     1. sysvinit 是传统的 init 系统，现在大多数现代 Linux 发行版已经迁移到 systemd，所以上面的大部分命令在你的系统中无法使用
     2. Debian 在 Jessie（Debian 8，2015年）之前采用 sysvinit，之后迁移到 systemd
     3. sysvinit 源码仓库：<https://git.savannah.gnu.org/cgit/sysvinit.git>
@@ -319,7 +327,7 @@ BusyBox 是一个集成了许多 Unix 工具的单一可执行文件，它将许
 
 BusyBox 通过符号链接（symlink）机制工作：BusyBox 可执行文件本身包含所有工具的实现，通过不同的名称（符号链接）调用时，会执行相应的功能。
 
-!!! tip
+!!! tip "提示"
     1. 假设你尝试自己制作一个基于 BusyBox 的 Linux 发行版文件系统，你编译好 BusyBox 后将其放在了正在构建的文件系统中的 `/bin/busybox`，然后你可以 `cd` 进入对应的 bin 目录（例如 `~/my_rootfs/bin`）然后创建一个符号链接：`ln -s busybox ls`，**切记不要使用`ln -s /bin/busybox /bin/ls`这样的形式**，因为我们假设你在构建文件系统时还没有 chroot，所以 `/bin` 目录指向的是你的 host linux 环境中的 `/bin` 目录。请思考一下 BusyBox 是如何做到“通过符号链接就能调用单个可执行文件中的所有工具”的？
     2. 请阅读 BusyBox 的源码，验证你的想法：
         - GitHub 仓库：<https://github.com/mirror/busybox>，观察源码结构，找到“真正的” `main` 函数的实现（你可能会发现若干 `xxx_main` 函数，它们是 BusyBox 的各 applet 的 “main 函数”）
@@ -390,7 +398,7 @@ halt
 poweroff
 ```
 
-!!! note
+!!! note "参考资料"
     1. BusyBox 官方网站：<https://busybox.net>
     2. BusyBox 源码仓库：<https://git.busybox.net/busybox>
     3. 大多数现代 Linux 发行版使用完整的 GNU coreutils（<https://www.gnu.org/software/coreutils/>）
@@ -402,7 +410,7 @@ poweroff
 
 [^systemd-components]: systemd 组件图，图片来源：<https://en.wikipedia.org/wiki/Systemd>
 
-systemd 是现代 Linux 系统的 init 系统，是目前绝大多数 Linux 发行版的默认 init 系统[^systemd-adoption]。systemd 由 RedHet 公司开发，以”违反 UNIX 哲学——一个软件只做一件事情“著称，其不仅是一个 init 系统，还是一系列完善的管理系统服务的工具和库的集合，一些常用组件包括：
+[systemd](<https://systemd.io>) 是现代 Linux 系统的 init 系统，是目前绝大多数 Linux 发行版的默认 init 系统[^systemd-adoption]。systemd 由 RedHet 公司开发，以”违反 UNIX 哲学——一个软件只做一件事情“著称，其不仅是一个 init 系统，还是一系列完善的管理系统服务的工具和库的集合，一些常用组件包括：
 
 [^systemd-adoption]: systemd 的各种 Linux 发行版采用情况：<https://en.wikipedia.org/wiki/Systemd#Adoption>
 
@@ -418,7 +426,10 @@ systemd 是现代 Linux 系统的 init 系统，是目前绝大多数 Linux 发�
 - `resolved`：域名解析管理
 - `systemd-boot`：启动管理，可以替换 GRUB
 
-#### OpenRC
+!!! note "参考资料"
+    1. systemd 官方网站：<https://systemd.io>
+    2. systemd 源码仓库：<https://github.com/systemd/systemd>
+
 
 ### 系统监控（Monitoring）
 
@@ -427,8 +438,6 @@ systemd 是现代 Linux 系统的 init 系统，是目前绝大多数 Linux 发�
 #### top
 
 #### htop
-
-#### btop
 
 ### 系统追踪（Tracing）
 
@@ -439,6 +448,8 @@ systemd 是现代 Linux 系统的 init 系统，是目前绝大多数 Linux 发�
 #### ftrace
 
 #### bpftrace
+
+#### LTTng
 
 ## Linux 内核初探
 
